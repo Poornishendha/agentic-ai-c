@@ -14,7 +14,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.tools.retriever import create_retriever_tool
 from langchain.agents import create_agent
 
-CHUNK_SIZE = 500
+CHUNK_SIZE = 250
 
 def load_codebase(repo_path: str) -> list:
    docs = []

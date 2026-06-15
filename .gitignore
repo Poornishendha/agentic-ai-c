@@ -32,3 +32,13 @@ build/
 # Secrets
 *.pem
 *.key
+
+# Chroma DB
+chroma_db/
+*.sqlite3
+
+# Chroma generated files
+*.bin
+
+# Jupyter
+.ipynb_checkpoints/

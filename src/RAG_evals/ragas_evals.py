@@ -132,11 +132,10 @@ if __name__ == "__main__":
    parser = argparse.ArgumentParser()
    parser.add_argument(
        "--repo",
-       default=str(Path(__file__).parent.parent / "sample_project"),
+       default=str(Path(__file__).parent.parent.parent / "sample_project"),
    )
    args = parser.parse_args()
    repo_path = str(Path(args.repo).resolve())
-
 
    docs = load_codebase(repo_path)
    chunks = chunk_code(docs)

@@ -63,6 +63,7 @@ def load_codebase(root: Path) -> list[tuple[str, str]]:
        files.append((str(path.relative_to(root)), path.read_text(encoding="utf-8")))
    return files
 
+
 # ---------------------------------------------------------------------------
 # 2. EXTRACT RELATIONSHIPS & BUILD GRAPH
 # ---------------------------------------------------------------------------
@@ -86,7 +87,9 @@ def build_graph(relationships: list[CodeRelationship]) -> nx.DiGraph:
 # ---------------------------------------------------------------------------
 # 3. RETRIEVE
 # ---------------------------------------------------------------------------
-
+ ## Performs fuzzy matching. If the LLM extracts an entity name like "UserService", 
+ # but your graph node is labeled "app/services/UserService.py", 
+ # this helper uses basic substring evaluation to bridge the difference.
 
 def match_nodes(graph: nx.DiGraph, entity: str) -> list[str]:
    needle = entity.strip().lower()
